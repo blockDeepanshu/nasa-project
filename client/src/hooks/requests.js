@@ -7,7 +7,7 @@ async function httpGetPlanets() {
   const data = await response.json();
   console.log(data);
 
-  return data.data;
+  return data;
 }
 
 // Load launches, sort by flight number, and return as JSON.
