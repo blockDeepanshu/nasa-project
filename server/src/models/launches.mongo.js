@@ -19,7 +19,6 @@ const launchSchema = new mongoose.Schema({
   },
   destination: {
     type: String,
-    required: true,
   },
   customer: [String],
   upcoming: {

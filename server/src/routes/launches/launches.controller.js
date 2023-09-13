@@ -4,9 +4,12 @@ const {
   existLaunch,
   deleteLaunchById,
 } = require("../../models/launches.model");
+const { getPagination } = require("../../services/quuery");
 
 const httpGetAllLaunches = async (req, res) => {
-  res.status(200).json(await getAllLaunches());
+  const { skip, limit } = await getPagination(req.query);
+
+  res.status(200).json(await getAllLaunches(skip, limit));
 };
 
 const httpAddNewLaunch = async (req, res) => {
