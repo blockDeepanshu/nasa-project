@@ -27,6 +27,7 @@ const loadPlanetsData = () => {
       )
       .on("data", async (data) => {
         if (isHabitablePlanet(data)) {
+          //console.log(data);
           savePlanet(data);
         }
       })
@@ -48,7 +49,7 @@ const getAllPlanets = () => {
 
 const savePlanet = async (planet) => {
   try {
-    await planets.findOne(
+    const planetFound = await planets.findOneAndUpdate(
       { keplerName: planet.kepler_name },
       { keplerName: planet.kepler_name },
       { upsert: true }
