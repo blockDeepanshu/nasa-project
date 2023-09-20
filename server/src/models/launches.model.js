@@ -51,7 +51,7 @@ const populateLaunches = async () => {
       success: launchDoc["success"],
       customers,
     };
-
+    console.log(launch);
     console.log(`${launch.flightNumber} - ${launch.mission}`);
 
     await saveLaunch(launch);
